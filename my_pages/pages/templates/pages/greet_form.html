@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greet Me</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 0 20px; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 10px 20px; background: #0066cc; color: white; border: none; cursor: pointer; }
+        .errorlist { color: red; list-style: none; padding: 0; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>Greet Me 👋</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Greet Me!</button>
+    </form>
+
+    <p><a href="{% url 'home' %}">← Home</a></p>
+</body>
+</html>

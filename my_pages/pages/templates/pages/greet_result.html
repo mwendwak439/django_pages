@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greeting</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 0 20px; }
+    </style>
+</head>
+<body>
+    <h1>Hello, {{ name }}! 👋</h1>
+
+    {% if age %}
+        <p>You are {{ age }} years old.</p>
+    {% else %}
+        <p>You didn't tell me your age.</p>
+    {% endif %}
+
+    <p><a href="{% url 'greet_form' %}">← Try again</a></p>
+    <p><a href="{% url 'home' %}">Home</a></p>
+</body>
+</html>
