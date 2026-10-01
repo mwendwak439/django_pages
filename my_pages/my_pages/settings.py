@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'my_pages.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'my_pages_db',
+        'USER':'root',
+        'PASSWORD':'Ken@3626',
+        'HOST':'localhost',
+        'PORT':'3306',
     }
 }
 
