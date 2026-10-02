@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from .forms import GreetingForm
 from .forms import GuestbookEntryForm
 from .models import Greeting
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+
 
 def home(request):
     return render(request, 'pages/home.html')
@@ -40,7 +44,7 @@ def guestbook_list(request):
     entries = Greeting.objects.all()
     return render(request, 'pages/guestbook_list.html', {'entries': entries})
 
-
+@login_required
 def guestbook_add(request):
     """Add a new greeting."""
     if request.method == 'POST':
@@ -53,7 +57,28 @@ def guestbook_add(request):
 
     return render(request, 'pages/guestbook_add.html', {'form': form})
 
+
+
 def guestbook_delete(request, pk):
     entry = Greeting.objects.get(id=pk)
     entry.delete()
     return redirect('guestbook_list')
+
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()          
+            login(request, user)         
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'pages/signup.html', {'form': form})
+
+
+@login_required
+def profile(request):
+    return render(request, 'pages/profile.html')

@@ -9,6 +9,7 @@ urlpatterns = [
     path('greet/', views.greet_form, name='greet_form'),
     path('guestbook/', views.guestbook_list, name='guestbook_list'),
     path('guestbook/add/', views.guestbook_add, name='guestbook_add'),
-    path('guestbook/<int:pk>/delete/', views.guestbook_delete, name='guestbook_delete')
+    path('guestbook/<int:pk>/delete/', views.guestbook_delete, name='guestbook_delete'),
+    path('profile/', views.profile, name='profile'), 
 
 ]
