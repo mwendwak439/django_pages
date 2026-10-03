@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head><title>About</title></head>
-<body>
+{% extends 'pages/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
     <h1>About Me</h1>
-    <p>I'm learning Django!</p>
-    <a href="/">Back home</a>
-</body>
-</html>
+    <p>I'm learning Django — URLs, views, templates, forms, models, auth, DRF, CBVs, and now static files.</p>
+    <p><a href="{% url 'home' %}">← Home</a></p>
+{% endblock %}

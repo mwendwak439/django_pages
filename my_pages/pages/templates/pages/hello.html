@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head><title>Hello</title></head>
-<body>
+{% extends 'pages/base.html' %}
+
+{% block title %}Hello{% endblock %}
+
+{% block content %}
     <h1>Hello, {{ name }}! 👋</h1>
-    <a href="/">Back home</a>
-</body>
-</html>
+    <p><a href="{% url 'home' %}">← Home</a></p>
+{% endblock %}

@@ -9,6 +9,4 @@
     <p><strong>Email:</strong> {{ user.email|default:"(not set)" }}</p>
     <p><strong>Joined:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
     <p><strong>Last login:</strong> {{ user.last_login|date:"F d, Y H:i" }}</p>
-
-    <p><a href="{% url 'home' %}">← Home</a></p>
 {% endblock %}

@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Greeting</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; }
-        label { display: block; margin-top: 15px; font-weight: bold; }
-        .form-input { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
-        button { margin-top: 20px; padding: 10px 20px; background: #0066cc; color: white; border: none; cursor: pointer; border-radius: 4px; }
-        .errorlist { color: red; list-style: none; padding: 0; margin: 5px 0; }
-    </style>
-</head>
-<body>
+{% extends 'pages/base.html' %}
+
+{% block title %}Sign the Guestbook{% endblock %}
+
+{% block content %}
     <h1>✍️ Sign the Guestbook</h1>
 
     <form method="post">
         {% csrf_token %}
-
         {% for field in form %}
             <div>
                 {{ field.label_tag }}
@@ -23,10 +14,8 @@
                 {{ field.errors }}
             </div>
         {% endfor %}
-
         <button type="submit">Submit</button>
     </form>
 
-    <p><a href="{% url 'guestbook_list' %}">← Back to guestbook</a></p>
-</body>
-</html>
+    <p class="mt-20"><a href="{% url 'guestbook_list' %}">← Back to guestbook</a></p>
+{% endblock %}

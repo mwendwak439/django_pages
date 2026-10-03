@@ -121,6 +121,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+# Where Django looks for project-wide static files
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# Where collected static files go in production (used later)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Email
